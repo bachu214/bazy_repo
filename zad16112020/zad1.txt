@@ -13,9 +13,9 @@ CREATE TABLE postac (
 
 2) 
 
-INSERT INTO postac (1,'Bjorn','wiking','1280-03-21',30);
-INSERT INTO postac (2,'Drozd','ptak','1300-05-20',10);
-INSERT INTO postac (3,'Tesciowa','kobieta','1250-06-10',80);
+INSERT INTO postac VALUES (1,'Bjorn','wiking','1280-03-21',30);
+INSERT INTO postac VALUES (2,'Drozd','ptak','1300-05-20',10);
+INSERT INTO postac VALUES (3,'Tesciowa','kobieta','1250-06-10',80);
 
 3) 
 

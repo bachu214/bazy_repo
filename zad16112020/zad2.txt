@@ -1,0 +1,14 @@
+1) CREATE TABLE walizka (
+	id_walizki INT NOT NULL AUTO_INCREMENT,
+	pojemnosc INT unsigned NOT NULL,
+	kolor ENUM('rozowy','czerwony','teczowy','zolty') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+	id_wlasciciela INT NOT NULL,
+	PRIMARY KEY (id_walizki),
+	FOREIGN KEY (id_wlasciciela) REFERENCES postac(`id_postaci`) ON DELETE CASCADE
+);
+
+2) ALTER TABLE walizka
+ALTER kolor SET DEFAULT 'rozowy';
+
+3) INSERT INTO walizka VALUES (1,100,'rozowy',1);
+INSERT INTO walizka VALUES (2,15,'zolty',3);
