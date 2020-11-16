@@ -1,0 +1,16 @@
+1)
+INSERT INTO postac VALUES (4,'Damas','wiking','1280-03-21',30);
+INSERT INTO postac VALUES (5,'Balor','wiking','1280-05-20',30);
+INSERT INTO postac VALUES (6,'Ravanna','wiking','1280-06-10',30);
+INSERT INTO postac VALUES (7,'Rorik','wiking','1280-07-10',30);
+INSERT INTO postac VALUES (8,'Arlik','wiking','1280-06-15',30);
+
+2)
+
+CREATE TABLE statek (
+	nazwa_statku VARCHAR(30) NOT NULL,
+	rodzaj_statku ENUM('Drakkar') NOT NULL,
+	data_wodowania DATE NOT NULL,
+	max_ladownosc INT unsigned NOT NULL,
+	PRIMARY KEY (nazwa_statku)
+);
