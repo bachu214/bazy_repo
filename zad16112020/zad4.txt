@@ -1,0 +1,17 @@
+1)
+
+CREATE TABLE przetwory (
+	id_przetworu INT NOT NULL,
+	rok_produkcji YEAR NOT NULL DEFAULT 2000,
+	id_wykonawcy INT NOT NULL,
+	zawartosc VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+	dodatek VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL DEFAULT 'Papryczka chili',
+	id_konsumenta INT NOT NULL,
+	PRIMARY KEY (id_przetworu),
+	FOREIGN KEY (id_wykonawcy) REFERENCES postac(`id_postaci`),
+	FOREIGN KEY (id_konsumenta) REFERENCES postac(`id_postaci`)
+);
+
+2) 
+
+INSERT INTO przetwory VALUES (1,2019,1,'Dwa topory, kapusta i cieplo serca Bjorna','Papryczka Chilli',3);
