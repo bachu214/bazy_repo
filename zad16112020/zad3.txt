@@ -1,0 +1,12 @@
+1) CREATE TABLE izba (
+	adres_budynku VARCHAR(100) NOT NULL,
+	nazwa_izby VARCHAR(50) NOT NULL,
+	metraz INT unsigned NOT NULL,
+	wlasciciel INT DEFAULT NULL,
+	PRIMARY KEY (adres_budynku,nazwa_izby),
+	FOREIGN KEY (wlasciciel) REFERENCES postac(`id_postaci`) ON DELETE SET NULL
+);
+
+2) ALTER TABLE izba ADD COLUMN kolor VARCHAR(50) DEFAULT 'czarny' AFTER metraz;
+
+3) INSERT INTO izba VALUES ("Hati 12 Managarmr",'Spizarnia',60,'czarny',1);
