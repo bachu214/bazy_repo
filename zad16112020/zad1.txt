@@ -1,0 +1,22 @@
+Zad 1
+
+1)
+
+CREATE TABLE postac (
+	id_postaci INT NOT NULL AUTO_INCREMENT,
+	nazwa CHAR NOT NULL,
+	rodzaj ENUM('wiking','ptak','kobieta') NOT NULL,
+	data_ur DATE NOT NULL,
+	wiek INT unsigned NOT NULL,
+	PRIMARY KEY (id_postaci)
+);
+
+2) 
+
+INSERT INTO postac (1,'Bjorn','wiking','1280-03-21',30);
+INSERT INTO postac (2,'Drozd','ptak','1300-05-20',10);
+INSERT INTO postac (3,'Tesciowa','kobieta','1250-06-10',80);
+
+3) 
+
+UPDATE postac SET wiek=88 WHERE id=3;
