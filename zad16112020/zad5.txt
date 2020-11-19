@@ -1,11 +1,17 @@
-1)
+1) Wstaw 5 wikingów do tabeli postaci.
+
 INSERT INTO postac VALUES (4,'Damas','wiking','1280-03-21',30);
 INSERT INTO postac VALUES (5,'Balor','wiking','1280-05-20',30);
 INSERT INTO postac VALUES (6,'Ravanna','wiking','1280-06-10',30);
 INSERT INTO postac VALUES (7,'Rorik','wiking','1280-07-10',30);
 INSERT INTO postac VALUES (8,'Arlik','wiking','1280-06-15',30);
 
-2)
+2)Stwórz tabelę statek z polami:
+
+a. nazwa statku - klucz główny
+b. rodzaj statku - typ wyliczeniowy
+c. data wodowania - typ daty
+d. max_ladownosc - liczba dodatnia
 
 CREATE TABLE statek (
 	nazwa_statku VARCHAR(30) NOT NULL,
@@ -14,3 +20,40 @@ CREATE TABLE statek (
 	max_ladownosc INT unsigned NOT NULL,
 	PRIMARY KEY (nazwa_statku)
 );
+
+3)Dodaj dwa statki do tabeli.
+
+INSERT INTO statek VALUES ('Horrigan','Drakkar','1300-01-05','500');
+INSERT INTO statek VALUES ('Hakunin','Drakkar','1300-02-05','600');
+
+4)Dodaj pola do tabeli postac:
+a. funkcja - ciąg znaków.
+
+ALTER TABLE postac ADD funkcja VARCHAR (60);
+
+5) Zmień funkcję u Bjorna na kapitan.
+
+UPDATE postac SET funkcja='kapitan' WHERE id_postaci=1;
+
+6) Dodaj klucz obcy w tabeli postać odwołujący się do statku.
+
+ALTER TABLE postac ADD statek VARCHAR(30);
+ALTER TABLE postac ADD FOREIGN KEY (statek) REFERENCES statek(nazwa_statku);
+
+7) Powsadzaj wikingów oraz drozda na statki.
+
+UPDATE postac SET statek='Hakunin' WHERE id_postaci=(1);
+UPDATE postac SET statek='Hakunin' WHERE id_postaci=(2);
+UPDATE postac SET statek='Hakunin' WHERE id_postaci=(4);
+UPDATE postac SET statek='Hakunin' WHERE id_postaci=(5);
+UPDATE postac SET statek='Hakunin' WHERE id_postaci=(6);
+UPDATE postac SET statek='Hakunin' WHERE id_postaci=(7);
+UPDATE postac SET statek='Hakunin' WHERE id_postaci=(8);
+
+8) Usuń izbę spiżarnia z tabeli izba.
+
+DELETE FROM izba WHERE nazwa_izby='Spizarnia';
+
+9) Usuń tabelę izba.
+
+DROP TABLE izba;
