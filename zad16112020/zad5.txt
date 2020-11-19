@@ -50,7 +50,7 @@ UPDATE postac SET statek='Hakunin' WHERE id_postaci=(6);
 UPDATE postac SET statek='Hakunin' WHERE id_postaci=(7);
 UPDATE postac SET statek='Hakunin' WHERE id_postaci=(8);
 
-8) Usuń izbę spiżarnia z tabeli izba.
+8) Usuń izbę spiżarnia z tabeli izba
 
 DELETE FROM izba WHERE nazwa_izby='Spizarnia';
 
