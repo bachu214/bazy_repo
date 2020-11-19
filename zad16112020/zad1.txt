@@ -1,6 +1,11 @@
 Zad 1
 
-1)
+1) Stwórz tabelę postac z następującymi polami:
+a. id_postaci kl. główny, liczba samozwiększająca się
+b. nazwa - ciąg znaków max 40
+c. rodzaj - typ wyliczeniowy (wiking, ptak, kobieta)
+d. data_ur - typ daty
+e. wiek - liczba nieujemna.
 
 CREATE TABLE postac (
 	id_postaci INT NOT NULL AUTO_INCREMENT,
@@ -11,12 +16,13 @@ CREATE TABLE postac (
 	PRIMARY KEY (id_postaci)
 );
 
-2) 
+2) Do tabeli postac dodaj rekordy, gdzie kolumna nazwa to Bjorn, Drozd, Tesciowa (w pozostałe
+pola wpisz w miarę sensowne dane) .
 
 INSERT INTO postac VALUES (1,'Bjorn','wiking','1280-03-21',30);
 INSERT INTO postac VALUES (2,'Drozd','ptak','1300-05-20',10);
 INSERT INTO postac VALUES (3,'Tesciowa','kobieta','1250-06-10',80);
 
-3) 
+3) Zmodyfikuj wiek teściowej na 88 lat.
 
 UPDATE postac SET wiek=88 WHERE id=3;
