@@ -1,0 +1,12 @@
+a) uśmierć dwóch najstarszych wikingów, ale to nie może być Bjorn (DELETE z WHERE)
+
+DELETE FROM postac WHERE id_postaci=4;
+DELETE FROM postac WHERE id_postaci=5;
+
+b) usuń klucz główny z tabeli postac - może być potrzebnych kilka komend (np. odłączenie kluczy
+obcych)
+
+(nie może usunąć klucza obcego z tabeli walizka jak cos)
+ALTER TABLE walizka DROP FOREIGN KEY id_wlasciciela;
+ALTER TABLE postac MODIFY id_postaci INT NOT NULL;
+ALTER TABLE postac DROP PRIMARY KEY;
