@@ -1,0 +1,12 @@
+a) Do postaci dodaj węża Loko, tylko nie wsadzaj go na statek
+
+INSERT INTO postac VALUES (10,'Loko','ptak','1300-05-27',10,NULL,NULL,'12345678910');
+
+b) Stwórz nową tabelę na podstawie tabeli Postacie (dokładnie takie same pola), nazwij ją Marynarz -
+wrzuć do tej tabeli wszystkie postacie które mają zdefiniowany statek
+
+CREATE TABLE marynarz SELECT id_postaci, nazwa, rodzaj, data_ur, wiek, funkcja, statek, pesel FROM postac WHERE statek IS NOT NULL;
+
+c) dostosuj odpowiednio klucze główne i obce
+
+ALTER TABLE marynarz ADD PRIMARY KEY (pesel);

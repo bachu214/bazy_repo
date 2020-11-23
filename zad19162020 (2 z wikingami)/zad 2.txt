@@ -1,0 +1,20 @@
+a) do tabeli postać dodaj pole pesel składające się z 11 znaków i ustaw to pole na klucz główny
+
+ALTER TABLE postac ADD COLUMN pesel VARCHAR(11) NOT NULL;
+
+UPDATE postac SET pesel='12345678901' WHERE id_postaci=1;
+UPDATE postac SET pesel='12345678902' WHERE id_postaci=2;
+UPDATE postac SET pesel='12345678903' WHERE id_postaci=3;
+UPDATE postac SET pesel='12345678906' WHERE id_postaci=6;
+UPDATE postac SET pesel='12345678907' WHERE id_postaci=7;
+UPDATE postac SET pesel='12345678908' WHERE id_postaci=8;
+
+ALTER TABLE postac ADD PRIMARY KEY (pesel);
+
+b) w tabeli postać zmień pole rodzaj, tak, aby możliwe było dodanie syreny
+
+ALTER TABLE postac MODIFY COLUMN rodzaj enum('wiking','ptak','kobieta','syrena');
+
+c) wstaw do tabeli syrenę o nazwie Gertruda Nieszczera
+
+INSERT INTO postac VALUES (9,'Getruda Nieszczera','syrena','1000-12-24','220',NULL,'Hakunin','12345678909');

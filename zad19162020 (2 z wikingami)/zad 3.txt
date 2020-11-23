@@ -1,0 +1,11 @@
+a) wszystkie postacie, które mają w swojej nazwie 'a', wsadź na statek Bjorna
+
+UPDATE postac SET statek='Horrigan' WHERE nazwa LIKE '%a%';
+
+b) Zmniejsz ładowność wszystkim statkom o 30%, których data wodowania była w XX wieku
+
+UPDATE statek SET max_ladownosc=600*0.70 WHERE data_wodowania BETWEEN '1900-01-01' AND '1999-12-31';
+
+c) ustaw warunek sprawdzający czy wiek postaci nie jest większy od 1000
+
+ALTER TABLE postac ADD CHECK (wiek>=1000);

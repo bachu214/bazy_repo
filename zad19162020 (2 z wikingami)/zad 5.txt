@@ -1,0 +1,31 @@
+a) wysadź wszystkich ze statku
+
+UPDATE postac SET statek=NULL WHERE nazwa IS NOT NULL;
+
+b) uśmierć jednego wikinga
+
+DELETE FROM postac WHERE id_postaci=6;
+
+c) zniszcz wszystkie statki
+
+DELETE FROM statek WHERE rodzaj_statku="Drakkar";
+ 
+d)usuń tabelę statek
+
+ALTER TABLE postac DROP FOREIGN KEY postac_ibfk_1;
+DROP TABLE statek;
+
+e) stwórz tabelę zwierz z polami id - klucz główny samo zwiększający się, nazwa - ciąg znaków, wiek -
+liczba
+
+CREATE TABLE zwierz (
+	id INT NOT NULL AUTO_INCREMENT,
+	nazwa VARCHAR(40) NOT NULL,
+	wiek INT UNSIGNED,
+	PRIMARY KEY (id)
+);
+
+f) przekopiuj z tabeli postac wszystkie zwierzaki
+
+INSERT INTO zwierz (id, nazwa, wiek) SELECT id_postaci, nazwa, wiek FROM postac WHERE rodzaj='ptak';
+

@@ -7,6 +7,9 @@ b) usuń klucz główny z tabeli postac - może być potrzebnych kilka komend (n
 obcych)
 
 (nie może usunąć klucza obcego z tabeli walizka jak cos)
-ALTER TABLE walizka DROP FOREIGN KEY id_wlasciciela;
+ALTER TABLE walizka DROP FOREIGN KEY walizka_ibfk_1;
+ALTER TABLE przetwory DROP FOREIGN KEY przetwory_ibfk_1;
+ALTER TABLE przetwory DROP FOREIGN KEY przetwory_ibfk_2;
 ALTER TABLE postac MODIFY id_postaci INT NOT NULL;
 ALTER TABLE postac DROP PRIMARY KEY;
+
