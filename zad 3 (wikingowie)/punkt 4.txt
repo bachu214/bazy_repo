@@ -1,0 +1,13 @@
+1) Wyświetl unikalne rodzaje zasobów.
+
+SELECT DISRINCT (???????????)
+
+2) Wyświetl jako jedną kolumnę nazwę i rodzaj kreatury (w postaci: nazwa - rodzaj), gdzie
+rodzaj rozpoczyna się od 'wi'.
+
+SELECT nazwa,rodzaj FROM kreatura WHERE rodzaj LIKE 'wi%';
+
+3) Wyświetl zasoby z całkowitą wagą danego zasobu (ilość * waga) dla zasobów pozyskanych w
+latach 2000-2007.
+
+SELECT nazwa, (ilosc * waga) AS calkowita_waga FROM zasob WHERE dataPozyskania BETWEEN '2000-01-01' AND '2007-12-31';

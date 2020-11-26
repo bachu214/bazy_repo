@@ -1,0 +1,11 @@
+1) Wyświetl zasoby, które zostały pozyskane w miesiącach lipcu i sierpniu.
+
+SELECT * FROM zasob WHERE MONTH(dataPozyskania)=07 OR MONTH(dataPozyskania)=08;
+
+2) Wyświetl zasoby, które mają zdefiniowany rodzaj od najlżejszego do najcięższego.
+
+SELECT * FROM zasob ORDER BY waga;
+
+3) Wyświetl 5 najstarszych kreatur.
+
+SELECT * FROM kreatura ORDER BY dataUr LIMIT 5;

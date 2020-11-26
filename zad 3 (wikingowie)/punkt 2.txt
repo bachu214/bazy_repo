@@ -1,0 +1,11 @@
+1) Wyświetl kreatury, które nie są wiedźmą i dźwigają co najmniej 50kg.
+
+SELECT * FROM kreatura WHERE rodzaj NOT IN ('wiedzma') AND udzwig>50;
+
+2) Wyświetl zasoby, które ważą pomiędzy 2 a 5 kg.
+
+SELECT * FROM zasob WHERE waga BETWEEN 2 AND 5;
+
+3) Wyświetl kreatury, których nazwa zawiera 'or' i które dźwigają między 30kg a 70kg.
+
+SELECT * FROM kreatura WHERE nazwa LIKE '%or%' AND udzwig BETWEEN 30 AND 70;

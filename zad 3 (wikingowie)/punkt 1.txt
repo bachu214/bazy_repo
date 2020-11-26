@@ -1,0 +1,22 @@
+1) Skopiuj tabele 'kreatura','zasob','ekwipunek' z bazy 'wikingowie' do swojej bazy.
+
+CREATE TABLE bastekp.kreatura LIKE wikingowie.kreatura;
+INSERT INTO bastekp.kreatura SELECT * FROM wikingowie.kreatura;
+
+CREATE TABLE bastekp.zasob LIKE wikingowie.zasob;
+INSERT INTO bastekp.zasob SELECT * FROM wikingowie.zasob;
+
+CREATE TABLE bastekp.ekwipunek LIKE wikingowie.ekwipunek;
+INSERT INTO bastekp.ekwipunek SELECT * FROM wikingowie.ekwipunek;
+
+2) Wypisz wszystkie rekordy z tabeli 'zasob'.
+
+SELECT * FROM zasob;
+
+3) Wypisz wszystkie rekordy z tabeli 'zasob' gdzie typ to jedzenie.
+
+SELECT * FROM zasob WHERE rodzaj="jedzenie";
+
+4) Wypisz 'idZasobu', 'ilosc', dla kreatur o id 1,3,5.
+
+SELECT idZasobu,ilosc FROM ekwipunek WHERE idKreatury IN (1,3,5);
