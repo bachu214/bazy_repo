@@ -1,0 +1,12 @@
+1. wyświetl średnią wagę wszystkich wikingów
+
+SELECT AVG(waga) AS srednia_waga FROM kreatura WHERE rodzaj='wiking';
+
+2. Wyświetl średnią wagę oraz liczbę kreatur dla każdego rodzaju
+
+SELECT rodzaj ,AVG(waga) AS srednia_waga, COUNT(nazwa) AS ilosc FROM kreatura GROUP BY rodzaj;
+
+3. wyświetl średni wiek dla każdego rodzaju kreatury
+
+SELECT rodzaj ,AVG(YEAR(dataUr)) AS sredni_wiek FROM kreatura GROUP BY rodzaj;
+
