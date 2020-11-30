@@ -1,6 +1,6 @@
 1) Wyświetl unikalne rodzaje zasobów.
 
-SELECT DISRINCT (???????????)
+SELECT nazwa FROM zasob WHERE ilosc=1 GROUP BY nazwa HAVING COUNT(nazwa) = 1; 
 
 2) Wyświetl jako jedną kolumnę nazwę i rodzaj kreatury (w postaci: nazwa - rodzaj), gdzie
 rodzaj rozpoczyna się od 'wi'.
