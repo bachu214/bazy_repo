@@ -1,0 +1,14 @@
+1. Dla każdego rodzaju kreatury wyświetlić średnią wagę zasobów, jaką posiadają w ekwipunku,
+jeśli kreatura nie jest małpą ani wężem i ilość ekwipunku jest poniżej 30.
+
+SELECT 
+	kreatura.nazwa,
+	AVG(zasob.waga) AS srednia_waga
+FROM 
+	ekwipunek
+INNER JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu
+INNER JOIN kreatura ON kreatura.idKreatury = ekwipunek.idKreatury
+	WHERE NOT
+		kreatura.rodzaj='małpa' OR kreatura.rodzaj='wąż'
+GROUP BY kreatura.nazwa;
+	

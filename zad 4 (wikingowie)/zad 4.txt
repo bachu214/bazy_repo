@@ -1,0 +1,47 @@
+1. Wyświetlić nazwy wikingów, którzy urodzili się w latach 70-tych XVII wieku oraz nazwy
+zasobów, które posiadają (użyj natural joina jeśli się da).
+
+SELECT 
+	kreatura.nazwa, zasob.nazwa
+FROM ekwipunek
+	INNER JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu
+	INNER JOIN kreatura ON kreatura.idKreatury = ekwipunek.idKreatury
+	WHERE 
+		kreatura.rodzaj="wiking" 
+	AND
+		kreatura.dataUr BETWEEN '1670-01-01' AND '1680-12-31';
+
+2. Wyświetlić nazwy 5 najmłodszych kreatur, które w ekwipunku posiadają jedzenie.
+
+SELECT 
+	kreatura.nazwa AS imie,
+	zasob.nazwa,
+	zasob.rodzaj
+FROM ekwipunek
+	INNER JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu
+	INNER JOIN kreatura ON kreatura.idKreatury = ekwipunek.idKreatury
+	WHERE
+		zasob.rodzaj='jedzenie'	
+	ORDER BY dataUr DESC;
+
+3. Wypisz obok siebie nazwy kreatur, których numer idKreatury różni się o 5 (np. Bjorn - Astrid,
+Brutal - Ibra itd.). (???
+
+SELECT 
+	kreatura.nazwa || ' ' || kreatura.nazwa AS polaczenie
+FROM kreatura
+JOIN kreatura on  
+
+BRUDNOPIS 
+
+(to do pierwszego, nie działało)
+SELECT 
+	kreatura.nazwa, ekwipunek.idZasobu, zasob.nazwa
+FROM kreatura
+	NATURAL JOIN ekwipunek
+	NATURAL JOIN zasob
+	WHERE 
+		kreatura.rodzaj="wiking" 
+	AND
+		kreatura.dataUr BETWEEN '1670-01-01' AND '1680-12-31';
+

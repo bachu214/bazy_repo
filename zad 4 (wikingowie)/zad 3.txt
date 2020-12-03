@@ -1,0 +1,43 @@
+1. Wyświetlić dla każdej kreatury ilości zasobów jakie niesie. (Połączenie kreatury i ekwipunku) //zrobione
+
+SELECT kreatura.nazwa, SUM(ekwipunek.ilosc) AS obciazenie FROM kreatura INNER JOIN ekwipunek ON kreatura.idKreatury = ekwipunek.idKreatury GROUP BY kreatura.nazwa;
+
+lub
+
+SELECT 
+	kreatura.nazwa,
+	SUM(ekwipunek.ilosc) AS obciazenie 
+FROM 
+	kreatura
+INNER JOIN ekwipunek
+	ON kreatura.idKreatury = ekwipunek.idKreatury
+GROUP BY kreatura.nazwa;
+	
+
+2. Wyświetlić dla każdej kreatury nazwy zasobów jakie posiada. (połączenie trzech tabel)
+
+SELECT 
+	kreatura.nazwa, zasob.nazwa
+FROM ekwipunek
+	INNER JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu
+	INNER JOIN kreatura ON kreatura.idKreatury = ekwipunek.idKreatury;
+
+3. Wyświetlić kreatury, które nie posiadają żadnego ekwipunku. (LEFT JOIN lub podzapytanie)
+
+SELECT * FROM kreatura;
+
+
+
+BRUDNOPIS 
+
+SELECT kreatura.nazwa, ekwipunek.ilosc FROM kreatura LEFT OUTER JOIN ekwipunek ON kreatura.idKreatury = ekwipunek.idKreatury;
+
+SELECT kreatura.nazwa, SUM(ekwipunek.ilosc) AS obciazenie FROM kreatura INNER JOIN ekwipunek ON kreatura.idKreatury = ekwipunek.idKreatury GROUP BY kreatura.nazwa;
+
+SELECT 
+	kreatura.nazwa, zasob.idZasobu
+FROM kreatura
+	INNER JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu
+	INNER JOIN ekwipunek ON ekwipunek.idKreatury = kreatura.idKreatury;
+
+SELECT * FROM kreatura INNER JOIN ekwipunek, zasob ON kreatura.idKreatury = ekwipunek.idKreatury INNER JOIN zasob.idZasobu = ekwipunek.idEkwipunku;
