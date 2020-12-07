@@ -1,0 +1,9 @@
+1) Dla każdej wyprawy wypisz jej nazwę, liczbę uczestników, oraz nazwy tych uczestników w
+jednej linii. (użyj funkcji GROUP_CONCAT do zebrania nazw w jednej linii)
+
+SELECT 
+	*
+FROM 
+	wyprawa
+LEFT JOIN uczestnicy
+	ON ekwipunek.idKreatury = uczestnicy.id_uczestnika??

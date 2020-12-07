@@ -1,0 +1,48 @@
+1. Przekopiuj jeszcze raz z bazy wikingowie rekordy z tabeli kreatura, przekopiuj dodatkowo
+tabele: uczestnicy, etapy_wyprawy, sektor, wyprawa, wraz z danymi.
+
+CREATE TABLE bastekp.uczestnicy LIKE wikingowie.uczestnicy;
+INSERT INTO bastekp.uczestnicy SELECT * FROM wikingowie.uczestnicy;
+
+CREATE TABLE bastekp.etapy_wyprawy LIKE wikingowie.etapy_wyprawy;
+INSERT INTO bastekp.etapy_wyprawy SELECT * FROM wikingowie.etapy_wyprawy;
+
+CREATE TABLE bastekp.sektor LIKE wikingowie.sektor;
+INSERT INTO bastekp.sektor SELECT * FROM wikingowie.sektor;
+
+CREATE TABLE bastekp.wyprawa LIKE wikingowie.wyprawa;
+INSERT INTO bastekp.wyprawa SELECT * FROM wikingowie.wyprawa;
+
+DROP TABLE bastekp.kreatura;
+
+CREATE TABLE bastekp.kreatura LIKE wikingowie.kreatura;
+INSERT INTO bastekp.kreatura SELECT * FROM wikingowie.kreatura;
+
+2. Wypisz nazwy kreatur, które nie uczestniczyły w żadnej wyprawie. (Złączenie zewnętrzne lub podzapytanie)
+
+Uczestnicy x Kreatura
+
+SELECT 
+	*
+FROM 
+	kreatura
+LEFT JOIN uczestnicy
+	ON kreatura.idKreatury = uczestnicy.id_uczestnika
+WHERE uczestnicy.id_uczestnika IS NULL;
+
+3. Dla każdej wyprawy wypisać jej nazwę oraz sumę ilości ekwipunku, jaka została zabrana przez
+uczestników tej wyprawy.
+
+Kreatura X Uczestnicy X Ekwipunek X wyprawa
+
+SELECT 
+	wyprawa.nazwa AS nazwaWyprawy, SUM(ekwipunek.ilosc) AS ilosc_eq
+FROM 
+	ekwipunek
+LEFT JOIN uczestnicy
+	ON ekwipunek.idKreatury = uczestnicy.id_uczestnika
+LEFT JOIN kreatura
+	ON ekwipunek.idKreatury = kreatura.idKreatury
+LEFT JOIN wyprawa
+	ON uczestnicy.id_wyprawy = wyprawa.id_wyprawy
+GROUP BY wyprawa.nazwa;
