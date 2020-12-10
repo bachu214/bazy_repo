@@ -1,0 +1,9 @@
+1. Dla każdej wyprawy wypisz jej nazwę oraz sumę liczby znaków, które zostały użyte przy
+pisaniu dziennika, jeśli ta liczba znaków jest mniejsza od 400.
+
+SELECT 
+	*
+FROM 
+	etapy_wyprawy
+LEFT JOIN wyprawa
+	ON etapy_wyprawy.idEtapu  = wyprawa.id_wyprawy;

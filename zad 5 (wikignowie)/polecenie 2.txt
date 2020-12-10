@@ -2,8 +2,47 @@
 jednej linii. (użyj funkcji GROUP_CONCAT do zebrania nazw w jednej linii)
 
 SELECT 
-	*
+	wyprawa.nazwa, COUNT(uczestnicy.id_uczestnika) AS liczba_uczestnikow, GROUP_CONCAT(DISTINCT kreatura.nazwa) AS lista
+FROM
+	uczestnicy
+LEFT JOIN wyprawa
+	ON uczestnicy.id_wyprawy = wyprawa.id_wyprawy
+LEFT JOIN kreatura 
+	ON uczestnicy.id_uczestnika = kreatura.idKreatury
+GROUP BY uczestnicy.id_wyprawy;
+
+2) Wypisz kolejne etapy wszystkich wypraw wraz z nazwami sektorów, sortując najpierw według
+daty początku wyprawy, a następnie według kolejności występowania etapów. W każdym
+etapie określ nazwę kierownika danej wyprawy.
+
+
+(dobre_nie ruszać)
+SELECT 
+	wyprawa.nazwa, sektor.nazwa, wyprawa.data_rozpoczecia, etapy_wyprawy.kolejnosc, kreatura.nazwa
 FROM 
-	wyprawa
-LEFT JOIN uczestnicy
-	ON ekwipunek.idKreatury = uczestnicy.id_uczestnika??
+	etapy_wyprawy
+LEFT JOIN sektor
+	ON etapy_wyprawy.sektor = sektor.id_sektora
+LEFT JOIN wyprawa
+	ON etapy_wyprawy.idwyprawy = wyprawa.id_wyprawy
+LEFT JOIN kreatura
+	ON wyprawa.kierownik = kreatura.idKreatury
+ORDER BY wyprawa.data_rozpoczecia, etapy_wyprawy.kolejnosc;
+(dobre_nie ruszać)
+
+(testowanko)
+SELECT 
+	wyprawa.nazwa, sektor.nazwa, wyprawa.data_rozpoczecia, etapy_wyprawy.kolejnosc, kreatura.nazwa
+FROM 
+	etapy_wyprawy
+LEFT JOIN sektor
+	ON etapy_wyprawy.sektor = sektor.id_sektora
+LEFT JOIN wyprawa
+	ON etapy_wyprawy.idwyprawy = wyprawa.id_wyprawy
+LEFT JOIN kreatura
+	ON wyprawa.kierownik = kreatura.idKreatury
+ORDER BY wyprawa.data_rozpoczecia, etapy_wyprawy.kolejnosc;
+(testowanko)
+
+
+

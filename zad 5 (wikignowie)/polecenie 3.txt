@@ -1,0 +1,23 @@
+1. Wypisać ile razy dany sektor był odwiedzany podczas wszystkich wypraw (nazwa sektora,
+ilość odwiedzin). Jeśli nie był odwiedzony ani razu, wpisz zero. (można wykorzystać funkcję ifnull)
+
+(chyba dobre nie ruszac)
+SELECT 
+	sektor.nazwa, IFNULL(COUNT(etapy_wyprawy.sektor),0) AS ilosc_odwiedzin
+FROM 
+	etapy_wyprawy
+LEFT JOIN sektor
+	ON etapy_wyprawy.sektor = sektor.id_sektora
+GROUP BY sektor.nazwa;
+(chyba dobre nie ruszac)
+
+2. W zależności od ilości wypraw, w jakich brała udział dana kreatura wypisz: nazwa kreatury,
+'brał udział w wyprawie' - gdy liczba > 0, 'nie brał udziału w wyprawie', gdy równa zero.
+
+SELECT 
+	kreatura.nazwa, IF(COUNT(id_wyprawy)>0,'brał udział w wyprawie','nie brał udziału w wyprawie') AS status_uczestnictwa
+FROM
+	kreatura
+LEFT JOIN uczestnicy
+	ON kreatura.idKreatury = uczestnicy.id_uczestnika
+GROUP BY kreatura.nazwa;
