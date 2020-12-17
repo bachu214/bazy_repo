@@ -1,0 +1,24 @@
+1) Stwórz tabelę archiwum_wypraw z polami id_wyprawy, nazwa, data_rozpoczecia,
+data_zakonczenia, kierownik (varchar), do której będą wstawiane rekordy po usunięciu z
+tabeli wyprawa. Do kolumny kierownik wstawiane jest nazwa kreatury na podstawie
+usuwanego id_kreatury.
+
+CREATE TABLE archiwum_wypraw LIKE wyprawa;
+
+DELIMITER $$
+
+CREATE TRIGGER wyprawy_przeniesienie 
+	AFTER DELETE 
+	ON wyprawa FOR EACH ROW
+BEGIN
+	INSERT INTO archiwum_wypraw(id_wyprawy,nazwa,data_rozpoczecia,data_zakonczenia,kierownik)
+	VALUES (OLD.id_wyprawy,OLD.nazwa,OLD.data_rozpoczecia,OLD.data_zakonczenia,OLD.kierownik);
+END$$
+
+DELIMITER;
+
+
+TESTOWE 
+--
+INSERT INTO wyprawa VALUES (5,'Polowanie na wielkiego komara','1999-05-02','2000-06-02',3);
+INSERT INTO wyprawa VALUES (7,'Test03','1800-01-01','1801-01-01',5);

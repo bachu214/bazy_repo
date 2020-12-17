@@ -1,0 +1,14 @@
+a) Napisz wyzwalacz, który przed wstawieniem lub modyfikacją tabeli kreatura sprawdzi czy
+waga jest większa od zera.
+
+DELIMITER //
+
+CREATE TRIGGER kreatura_waga BEFORE INSERT ON kreatura
+FOR EACH ROW BEGIN
+	IF (kreatura.waga < 0) THEN 
+		SIGNAL SQLSTATE VALUE '50000' SET MESSAGE_TEXT = 'Waga mniejsza od zera';
+	END IF;
+	
+	END;//
+
+DELIMITER;

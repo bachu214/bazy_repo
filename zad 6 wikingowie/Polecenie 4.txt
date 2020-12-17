@@ -1,0 +1,25 @@
+1. Stwórz tabelę "system_alarmowy" z polami, id_alarmu, wiadomosc.
+
+CREATE TABLE system_alarmowy (
+id_alarmu INT NOT NULL AUTO_INCREMENT,
+wiadomosc VARCHAR(100),
+PRIMARY KEY (id_alarmu) 
+);
+
+2. Dodaj wyzwalacz, który będzie sprawdzał czy w tabeli wyprawy pojawiła się misja, w której
+bierze udział teściowa oraz czy jednym z sektorów misji jest domek dziadka. Jeżeli w/w
+zaistnieje wyzwalacz wstawi rekord do tabeli "system_alarmowy" z treścią "Teściowa
+nadchodzi !!!".
+
+DELIMITER $$
+
+CREATE TRIGGER mechanizm_alarmowy
+	AFTER INSERT
+	ON wyprawa FOR EACH ROW
+BEGIN
+	WHEN uczestnicy.id_uczestnika = 14 THEN
+		INSERT INTO system_alarmowy(wiadomosc)
+		VALUES ('Teściowa nadchodzi !!!');
+END$$
+
+DELIMITER;

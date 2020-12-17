@@ -1,0 +1,18 @@
+1.Napisz procedurę o nazwie "eliksir_sily", która będzie podnosiła wartość pola udzwig z tabeli
+kreatura o 20% na podstawie id_kreatury przekazywanego jako parametr.
+
+DELIMITER $$
+CREATE PROCEDURE eliksir_sily (IN id_kreatury_parametr)
+BEGIN 
+	UPDATE kreatura 
+	SET
+		udzwig = (udzwig*1.20) WHERE id_kreatury = id_kreatury_parametr;
+END$$
+DELIMITER;
+
+2. Napisz funkcję, która będzie pobierała tekst i zwracała go z wielkich liter.
+
+CREATE FUNCTION wielkie_litery (b VARCHAR(255))
+RETURNS VARCHAR(255)
+BEGIN 
+	IF 
