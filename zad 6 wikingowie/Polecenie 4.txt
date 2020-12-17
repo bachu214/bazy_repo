@@ -1,4 +1,4 @@
-1. Stwórz tabelę "system_alarmowy" z polami, id_alarmu, wiadomosc.
+1. Stwórz tabele "system_alarmowy" z polami, id_alarmu, wiadomosc.
 
 CREATE TABLE system_alarmowy (
 id_alarmu INT NOT NULL AUTO_INCREMENT,
