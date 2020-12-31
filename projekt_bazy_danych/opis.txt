@@ -1,0 +1,1 @@
+Baza ma zawierać dane pracowników, klientów (i ich adresy), umówione wizyty, rodzaje masażu. 
