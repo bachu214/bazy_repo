@@ -15,7 +15,7 @@ BEGIN
 	VALUES (OLD.id_wyprawy,OLD.nazwa,OLD.data_rozpoczecia,OLD.data_zakonczenia,OLD.kierownik);
 END$$
 
-DELIMITER;
+DELIMITER ;
 
 
 TESTOWE 

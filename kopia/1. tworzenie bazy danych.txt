@@ -1,4 +1,5 @@
-1.1 Stworzenie tabeli pracownicy
+/*1.1 Stworzenie tabeli pracownicy */
+
 
 CREATE TABLE pracownicy_p (
 	pesel VARCHAR(11) NOT NULL,
@@ -10,7 +11,7 @@ CREATE TABLE pracownicy_p (
 	funkcja ENUM('terapeuta','pracownik_biurowy','pomocnik')
 );
 
-1.2 Stworzenie tabeli rodzaje_masazu
+/* 1.2 Stworzenie tabeli rodzaje_masazu */
 
 CREATE TABLE rodzaje_masazu_p (
 	id_rodzaju INT NOT NULL AUTO_INCREMENT,
@@ -19,9 +20,9 @@ CREATE TABLE rodzaje_masazu_p (
 	PRIMARY KEY(id_rodzaju)
 );
 
-1.3 Stworzenie bazy adresów klientów
+/* 1.3 Stworzenie bazy adresów klientów */
 
-CREATE TABLE adresy_klientów_p (
+CREATE TABLE adresy_klientw_p (
 	id_adresu INT NOT NULL AUTO_INCREMENT,
 	miasto VARCHAR(50),
 	wojewodztwo VARCHAR(30),
@@ -32,7 +33,7 @@ CREATE TABLE adresy_klientów_p (
 	PRIMARY KEY(id_adresu)
 );
 
-1.4 Stworzenie tabeli klienci i dodanie klucza obcego
+/* 1.4 Stworzenie tabeli klienci i dodanie klucza obcego */
 
 CREATE TABLE klienci_p (
 	pesel VARCHAR(11) NOT NULL,
@@ -45,7 +46,7 @@ CREATE TABLE klienci_p (
 	FOREIGN KEY(id_adresu) REFERENCES adresy_klientów_p(id_adresu)
 );
 
-1.5 Stworzenie tabeli wizyty i dodanie trzech kluczów obcych
+/* 1.5 Stworzenie tabeli wizyty i dodanie trzech kluczów obcych */
 
 CREATE TABLE wizyty_p (
 	id_wizyty INT NOT NULL AUTO_INCREMENT,
